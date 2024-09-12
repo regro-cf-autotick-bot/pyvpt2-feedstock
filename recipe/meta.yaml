@@ -1,5 +1,5 @@
 {% set name = "pyvpt2" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyvpt2-{{ version }}.tar.gz
-  sha256: f9d605dc9fb4b6c5a5eff092ad401e0ba70821d8e495a8cac74a61b5008a3242
+  sha256: ef81415f98996ea5d0de45924aa27f05e9201d69090da177e5e0a9346d890873
 
 build:
   noarch: python
