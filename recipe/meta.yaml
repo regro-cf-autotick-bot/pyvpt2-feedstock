@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyvpt2-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyvpt2-{{ version }}.tar.gz
   sha256: ef81415f98996ea5d0de45924aa27f05e9201d69090da177e5e0a9346d890873
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=40.6.0
     - wheel
     - setuptools-git-versioning
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - pydantic
     - numpy
     - qcelemental
@@ -37,6 +37,7 @@ test:
     - python -c "import pyvpt2;assert pyvpt2.__version__ == '{{ version }}', f'{pyvpt2.__version__=} differs from recipe=\'{{ version }}\''"
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/philipmnel/pyvpt2
